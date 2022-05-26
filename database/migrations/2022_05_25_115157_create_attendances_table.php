@@ -15,10 +15,8 @@ return new class extends Migration
     {
         Schema::create('attendances', function (Blueprint $table) {
             $table->id();
-            $table->string("employee_id")->nullable();
+            $table->foreignId('employee_id')->constrained();
             $table->timestamps();
-
-            $table->foreign("employee_id")->references("id")->on("employees");
         });
     }
 
